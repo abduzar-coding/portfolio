@@ -88,19 +88,20 @@ function App() {
           <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
             <ProjectCard
-              title="Portfolio Website"
-              description="My personal portfolio showcasing dark mode, animation, and responsive design using Tailwind and Framer Motion."
+              title="Portfolio Website" // My portfolio website
+              description="A sleek, fully responsive portfolio built with React and Tailwind CSS, featuring smooth animations with Framer Motion and a dark mode toggle."
               tags={["React", "Tailwind", "Framer Motion"]}
               liveLink="https://abduzar.dev"
               codeLink="https://github.com/abduzar-coding/portfolio"
             />
             <ProjectCard
               title="Weather App"
-              description="Weather application with real-time API data and animated transitions."
-              tags={["React", "API", "CSS"]}
-              liveLink="https://your-weather-app.vercel.app"
-              codeLink="https://github.com/yourusername/weather-app"
+              description="A modern weather app built with React and Vite, featuring real-time data from OpenWeatherMap and responsive design."
+              tags={["React", "API", "Vite", "CSS"]}
+              liveLink="https://react-weather-app-neon-kappa.vercel.app/"
+              codeLink="https://github.com/abduzar-coding/react-weather-app"
             />
+
             <ProjectCard
               title="E-commerce UI"
               description="Responsive e-commerce front-end with filters, product cards, and mobile design."
@@ -142,7 +143,8 @@ function App() {
               viewport={{ once: true }}
               className="text-4xl font-bold mb-4"
             >
-              Contact Me
+            
+            Contact Me
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
