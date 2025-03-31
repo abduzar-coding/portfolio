@@ -106,7 +106,7 @@ function App() {
               title="E-commerce UI"
               description="Responsive e-commerce front-end with filters, product cards, and mobile design."
               tags={["React", "UI Design", "HTML/CSS"]}
-              liveLink="https://your-ecommerce.vercel.app"
+              liveLink="https://react-weather-app-neon-kappa.vercel.app"
               codeLink="https://github.com/yourusername/ecommerce-ui"
             />
             <ProjectCard
