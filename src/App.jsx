@@ -115,12 +115,12 @@ function App() {
               liveLink="https://your-task-tracker.vercel.app"
               codeLink="https://github.com/yourusername/task-tracker"
             />
-            <ProjectCard
-              title="Blog Platform"
-              description="Frontend blog system supporting Markdown posts and responsive layout."
-              tags={["React", "Tailwind", "Markdown"]}
-              liveLink="https://your-blog.vercel.app"
-              codeLink="https://github.com/yourusername/blog-platform"
+             <ProjectCard
+              title="Weather App"
+              description="A modern weather app built with React and Vite, featuring real-time data from OpenWeatherMap and responsive design."
+              tags={["React", "API", "Vite", "CSS"]}
+              liveLink="https://weather.abduzar.dev"
+              codeLink="https://github.com/abduzar-coding/react-weather-app"
             />
             <ProjectCard
               title="Currency Converter"
