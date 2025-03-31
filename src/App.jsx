@@ -98,10 +98,9 @@ function App() {
               title="Weather App"
               description="A modern weather app built with React and Vite, featuring real-time data from OpenWeatherMap and responsive design."
               tags={["React", "API", "Vite", "CSS"]}
-              liveLink="https://react-weather-app-neon-kappa.vercel.app/"
+              liveLink="https://weather.abduzar.dev"
               codeLink="https://github.com/abduzar-coding/react-weather-app"
             />
-
             <ProjectCard
               title="E-commerce UI"
               description="Responsive e-commerce front-end with filters, product cards, and mobile design."
