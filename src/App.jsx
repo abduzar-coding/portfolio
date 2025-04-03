@@ -78,8 +78,26 @@ function App() {
               viewport={{ once: true }}
               className="text-muted dark:text-gray-400 text-lg"
             >
-              I'm a self-driven front-end developer with a strong passion for clean UI and delightful user experiences. I enjoy crafting modern web interfaces using React, Tailwind, and motion libraries. Currently, I'm focused on mastering JavaScript and building unique digital experiences.
+              I’ve recently started my journey as a front-end developer — and I’m all in.  
+              With a background in computing systems and a growing passion for web development, I’ve been building real-world projects using React, Tailwind CSS, and APIs. Every line of code I write brings me one step closer to mastering the craft and delivering work that speaks for itself.
+              
+              I believe great developers aren’t born — they’re built project by project, and I’m here for the long game.
             </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="mt-6"
+            >
+              <a
+                href="/CV_Abduzar_Khabib.pdf"
+                download
+                className="inline-block bg-secondary text-white font-semibold px-6 py-3 rounded-md hover:bg-primary transition"
+              >
+                Download CV
+              </a>
+            </motion.div>
           </div>
         </section>
 
@@ -88,7 +106,7 @@ function App() {
           <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
             <ProjectCard
-              title="Portfolio Website" // My portfolio website
+              title="Portfolio Website"
               description="A sleek, fully responsive portfolio built with React and Tailwind CSS, featuring smooth animations with Framer Motion and a dark mode toggle."
               tags={["React", "Tailwind", "Framer Motion"]}
               liveLink="https://abduzar.dev"
@@ -115,12 +133,12 @@ function App() {
               liveLink="https://your-task-tracker.vercel.app"
               codeLink="https://github.com/yourusername/task-tracker"
             />
-             <ProjectCard
-              title="Weather App"
-              description="A modern weather app built with React and Vite, featuring real-time data from OpenWeatherMap and responsive design."
-              tags={["React", "API", "Vite", "CSS"]}
-              liveLink="https://weather.abduzar.dev"
-              codeLink="https://github.com/abduzar-coding/react-weather-app"
+            <ProjectCard
+              title="Crypto Tracker"
+              description="Track live prices of top cryptocurrencies with real-time data, search functionality, and sleek responsive UI. Includes price charts and dynamic styling based on price change."
+              tags={["React", "API", "Chart.js", "Tailwind"]}
+              liveLink="https://crypto-tracker-demo.vercel.app"
+              codeLink="https://github.com/abduzar-coding/crypto-tracker"
             />
             <ProjectCard
               title="Currency Converter"
