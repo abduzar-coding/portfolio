@@ -130,8 +130,8 @@ function App() {
               title="Task Tracker"
               description="To-do list with localStorage support and dynamic filtering between tasks."
               tags={["JavaScript", "React", "LocalStorage"]}
-              liveLink="https://your-task-tracker.vercel.app"
-              codeLink="https://github.com/yourusername/task-tracker"
+              liveLink="https://task.abduzar.dev/"
+              codeLink="https://github.com/abduzar-coding/task-tracker"
             />
             <ProjectCard
               title="Crypto Tracker"
