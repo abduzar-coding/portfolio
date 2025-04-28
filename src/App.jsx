@@ -11,6 +11,7 @@ import "./index.css";
 function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formError, setFormError] = useState(false);
   const formRef = useRef();
 
   useEffect(() => {
@@ -21,6 +22,24 @@ function App() {
       root.classList.remove("dark");
     }
   }, [darkMode]);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setFormSubmitted(false);
+    setFormError(false);
+
+    emailjs
+      .sendForm('service_ipbiidj', 'template_rmg12he', formRef.current, '0z7GV5moOV079pwOC')
+      .then(() => {
+        setFormSubmitted(true);
+        setTimeout(() => setFormSubmitted(false), 4000);
+        formRef.current.reset();
+      })
+      .catch((error) => {
+        console.error('EmailJS Error:', error);
+        setFormError(true);
+      });
+  };
 
   return (
     <div className="relative min-h-screen w-screen overflow-hidden bg-light dark:bg-dark">
@@ -160,8 +179,7 @@ function App() {
               viewport={{ once: true }}
               className="text-4xl font-bold mb-4"
             >
-            
-            Contact Me
+              Contact Me
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -175,20 +193,7 @@ function App() {
 
             <motion.form
               ref={formRef}
-              onSubmit={(e) => {
-                e.preventDefault();
-                emailjs
-                  .sendForm('service_ipbiidj', 'template_rmg12he', formRef.current, '0z7GV5moOV079pwOC')
-                  .then(() => {
-                    setFormSubmitted(true);
-                    setTimeout(() => setFormSubmitted(false), 4000);
-                    formRef.current.reset();
-                  })
-                  .catch((error) => {
-                    console.error('EmailJS Error:', error);
-                    alert('❌ Something went wrong. Please try again.');
-                  });
-              }}
+              onSubmit={sendEmail}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -199,18 +204,21 @@ function App() {
                 type="text"
                 name="from_name"
                 placeholder="Your Name"
+                required
                 className="w-full px-4 py-3 rounded-md bg-white/30 dark:bg-white/10 text-dark dark:text-white border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary transition placeholder:text-gray-700 dark:placeholder:text-gray-300"
               />
               <input
                 type="email"
                 name="from_email"
                 placeholder="Your Email"
+                required
                 className="w-full px-4 py-3 rounded-md bg-white/30 dark:bg-white/10 text-dark dark:text-white border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary transition placeholder:text-gray-700 dark:placeholder:text-gray-300"
               />
               <textarea
                 name="message"
                 placeholder="Your Message"
                 rows="5"
+                required
                 className="w-full px-4 py-3 rounded-md bg-white/30 dark:bg-white/10 text-dark dark:text-white border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary transition resize-none placeholder:text-gray-700 dark:placeholder:text-gray-300"
               ></textarea>
               <button
@@ -225,14 +233,23 @@ function App() {
                   animate={{ opacity: 1 }}
                   className="text-green-600 dark:text-green-400 text-center font-medium mt-2"
                 >
-                  ✅ Your message has been sent!
+                  ✅ Your message has been sent successfully!
+                </motion.p>
+              )}
+              {formError && (
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-red-500 dark:text-red-400 text-center font-medium mt-2"
+                >
+                  ❌ Oops! Something went wrong. Please try again.
                 </motion.p>
               )}
             </motion.form>
           </div>
         </section>
 
-        {/* Footer Section */}
+        {/* Footer */}
         <Footer />
       </div>
     </div>
