@@ -156,15 +156,15 @@ function App() {
               title="Crypto Tracker"
               description="Track live prices of top cryptocurrencies with real-time data, search functionality, and sleek responsive UI. Includes price charts and dynamic styling based on price change."
               tags={["React", "API", "Chart.js", "Tailwind"]}
-              liveLink="https://crypto-tracker-demo.vercel.app"
+              liveLink="https://crypto.abduzar.dev"
               codeLink="https://github.com/abduzar-coding/crypto-tracker"
             />
             <ProjectCard
               title="Currency Converter"
               description="Currency converter fetching live exchange rates using an external API."
               tags={["JavaScript", "API", "Tailwind"]}
-              liveLink="https://your-currency-converter.vercel.app"
-              codeLink="https://github.com/yourusername/currency-converter"
+              liveLink="https://converter.abduzar.dev"
+              codeLink="https://github.com/abduzar-coding/currency-converter"
             />
           </div>
         </section>
