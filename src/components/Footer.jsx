@@ -23,7 +23,7 @@ const Footer = () => {
           <FaWhatsapp />
         </a>
         <a
-          href="#" // Replace with your actual LinkedIn profile
+          href="https://www.linkedin.com/in/abduzar-khabib"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-primary transition"
