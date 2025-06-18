@@ -12,6 +12,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState(false);
+  const [isSending, setIsSending] = useState(false);
   const formRef = useRef();
 
   useEffect(() => {
@@ -27,6 +28,7 @@ function App() {
     e.preventDefault();
     setFormSubmitted(false);
     setFormError(false);
+    setIsSending(true);
 
     emailjs
       .sendForm('service_ipbiidj', 'template_rmg12he', formRef.current, '0z7GV5moOV079pwOC')
@@ -38,6 +40,9 @@ function App() {
       .catch((error) => {
         console.error('EmailJS Error:', error);
         setFormError(true);
+      })
+      .finally(() => {
+        setIsSending(false);
       });
   };
 
@@ -223,9 +228,12 @@ function App() {
               ></textarea>
               <button
                 type="submit"
-                className="bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md transition duration-300"
+                disabled={isSending}
+                className={`bg-primary text-white font-semibold py-3 px-6 rounded-md transition duration-300 ${
+                  isSending ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
+                }`}
               >
-                Send Message
+                {isSending ? "Sending..." : "Send Message"}
               </button>
               {formSubmitted && (
                 <motion.p
