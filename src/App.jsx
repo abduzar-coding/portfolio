@@ -1,21 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Button from "./components/Button";
 import ProjectCard from "./components/ProjectCard";
-import Navbar from "./components/Navbar";
-import TestimonialCard from "./components/TestimonialCard"; 
-import TestimonialCarousel from "./components/TestimonialCarousel"; 
+import AboutSection from "./components/AboutSection";
+import TestimonialCarousel from "./components/TestimonialCarousel";
 import BlogSection from "./components/BlogSection";
-import Footer from "./components/Footer";
 import "./index.css";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState(false);
-  const [isSending, setIsSending] = useState(false);
   const formRef = useRef();
 
   useEffect(() => {
@@ -31,21 +30,17 @@ function App() {
     e.preventDefault();
     setFormSubmitted(false);
     setFormError(false);
-    setIsSending(true);
 
     emailjs
-      .sendForm('service_ipbiidj', 'template_rmg12he', formRef.current, '0z7GV5moOV079pwOC')
+      .sendForm("service_ipbiidj", "template_rmg12he", formRef.current, "0z7GV5moOV079pwOC")
       .then(() => {
         setFormSubmitted(true);
         setTimeout(() => setFormSubmitted(false), 4000);
         formRef.current.reset();
       })
       .catch((error) => {
-        console.error('EmailJS Error:', error);
+        console.error("EmailJS Error:", error);
         setFormError(true);
-      })
-      .finally(() => {
-        setIsSending(false);
       });
   };
 
@@ -87,46 +82,7 @@ function App() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="px-4 sm:px-8 text-center">
-          <div className="max-w-3xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-4xl font-bold mb-6"
-            >
-              About Me
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-muted dark:text-gray-400 text-lg"
-            >
-              I’ve recently started my journey as a front-end developer — and I’m all in.  
-              With a background in computing systems and a growing passion for web development, I’ve been building real-world projects using React, Tailwind CSS, and APIs. Every line of code I write brings me one step closer to mastering the craft and delivering work that speaks for itself.
-              
-              I believe great developers aren’t born — they’re built project by project, and I’m here for the long game.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="mt-6"
-            >
-              <a
-                href="/CV_Abduzar_Khabib.pdf"
-                download
-                className="inline-block bg-secondary text-white font-semibold px-6 py-3 rounded-md hover:bg-primary transition"
-              >
-                Download CV
-              </a>
-            </motion.div>
-          </div>
-        </section>
+        <AboutSection />
 
         {/* Projects Section */}
         <section id="projects" className="px-4 sm:px-8">
@@ -177,20 +133,19 @@ function App() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
+        {/* Blog Section */}
+        <BlogSection />
+
+        {/* Testimonials */}
         <section id="testimonials" className="px-4 sm:px-8 py-16">
           <div className="text-center">
-            <h2 className="text-4xl font-bold mb-12">Testimonials</h2>
+            <h2 className="text-4xl font-bold mb-4">Testimonials</h2>
             <p className="text-muted dark:text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
               Here’s what clients and collaborators say about working with me — real feedback from real results.
             </p>
             <TestimonialCarousel />
           </div>
         </section>
-
-        {/* Blog Section */}
-        <BlogSection />
-
 
         {/* Contact Section */}
         <section id="contact" className="px-4 sm:px-8">
@@ -246,12 +201,9 @@ function App() {
               ></textarea>
               <button
                 type="submit"
-                disabled={isSending}
-                className={`bg-primary text-white font-semibold py-3 px-6 rounded-md transition duration-300 ${
-                  isSending ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
-                }`}
+                className="bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md transition duration-300"
               >
-                {isSending ? "Sending..." : "Send Message"}
+                Send Message
               </button>
               {formSubmitted && (
                 <motion.p
@@ -275,7 +227,6 @@ function App() {
           </div>
         </section>
 
-        {/* Footer */}
         <Footer />
       </div>
     </div>

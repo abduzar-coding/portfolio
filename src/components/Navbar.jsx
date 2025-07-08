@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar({ toggleDarkMode, darkMode }) {
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("#about");
+  const [activeSection, setActiveSection] = useState("#home");
   const [mobileOpen, setMobileOpen] = useState(false);
   const mobileMenuRef = useRef(null);
 
