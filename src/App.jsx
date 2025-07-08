@@ -5,6 +5,9 @@ import emailjs from '@emailjs/browser';
 import Button from "./components/Button";
 import ProjectCard from "./components/ProjectCard";
 import Navbar from "./components/Navbar";
+import TestimonialCard from "./components/TestimonialCard"; 
+import TestimonialCarousel from "./components/TestimonialCarousel"; // 
+
 import Footer from "./components/Footer";
 import "./index.css";
 
@@ -173,6 +176,18 @@ function App() {
             />
           </div>
         </section>
+
+        {/* Testimonials Section */}
+        <section id="testimonials" className="px-4 sm:px-8 py-16">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold mb-12">Testimonials</h2>
+            <p className="text-muted dark:text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
+              Here’s what clients and collaborators say about working with me — real feedback from real results.
+            </p>
+            <TestimonialCarousel />
+          </div>
+        </section>
+
 
         {/* Contact Section */}
         <section id="contact" className="px-4 sm:px-8">
