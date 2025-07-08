@@ -6,8 +6,8 @@ import Button from "./components/Button";
 import ProjectCard from "./components/ProjectCard";
 import Navbar from "./components/Navbar";
 import TestimonialCard from "./components/TestimonialCard"; 
-import TestimonialCarousel from "./components/TestimonialCarousel"; // 
-
+import TestimonialCarousel from "./components/TestimonialCarousel"; 
+import BlogSection from "./components/BlogSection";
 import Footer from "./components/Footer";
 import "./index.css";
 
@@ -187,6 +187,9 @@ function App() {
             <TestimonialCarousel />
           </div>
         </section>
+
+        {/* Blog Section */}
+        <BlogSection />
 
 
         {/* Contact Section */}
