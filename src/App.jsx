@@ -9,6 +9,8 @@ import ProjectCard from "./components/ProjectCard";
 import AboutSection from "./components/AboutSection";
 import TestimonialCarousel from "./components/TestimonialCarousel";
 import BlogSection from "./components/BlogSection";
+import ParticlesScene from "./components/ParticlesScene";
+
 import "./index.css";
 
 function App() {
@@ -45,13 +47,17 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen w-screen overflow-hidden bg-light dark:bg-dark">
+    <div className="relative min-h-screen w-screen bg-light dark:bg-dark">
       <div className="relative z-10 text-dark dark:text-light px-4">
         <Navbar toggleDarkMode={() => setDarkMode(!darkMode)} darkMode={darkMode} />
 
         {/* Hero Section */}
-        <section id="home" className="min-h-screen flex flex-col items-center justify-center text-center bg-transparent">
-          <div className="space-y-6">
+        <section
+          id="home"
+          className="relative min-h-screen flex flex-col items-center justify-center text-center bg-transparent"
+        >
+          <ParticlesScene /> {/* ✅ Now only inside Hero */}
+          <div className="z-10 space-y-6">
             <motion.h1
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -81,7 +87,6 @@ function App() {
           </div>
         </section>
 
-        {/* About Section */}
         <AboutSection />
 
         {/* Projects Section */}
@@ -133,10 +138,9 @@ function App() {
           </div>
         </section>
 
-        {/* Blog Section */}
         <BlogSection />
 
-        {/* Testimonials */}
+        {/* Testimonials Section */}
         <section id="testimonials" className="px-4 sm:px-8 py-16">
           <div className="text-center">
             <h2 className="text-4xl font-bold mb-4">Testimonials</h2>
