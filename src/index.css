@@ -28,3 +28,19 @@ body {
 body::-webkit-scrollbar {
   display: none;                /* Chrome, Safari */
 }
+
+#home {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: transparent;
+}
+/* Ensure the canvas fills the Hero and sits behind */
+#hero-particles-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  pointer-events: none;
+}
