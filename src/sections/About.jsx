@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import "swiper/css";
 
-export default function AboutSection() {
+
+export default function About() {
   return (
     <section id="about" className="px-4 sm:px-8 py-16 text-center">
       <div className="max-w-4xl mx-auto">
@@ -58,21 +56,18 @@ export default function AboutSection() {
         >
         <h3 className="text-2xl font-bold mb-4">Tech Skills</h3>
         <div className="flex flex-wrap justify-center gap-3 mb-10">
-            {[
-            "React", "JavaScript", "Tailwind CSS", "HTML",
-            "CSS", "APIs", "Git", "Vite", "Framer Motion", "NPM"
+            {["React", "JavaScript", "Tailwind CSS", "HTML",
+              "CSS", "APIs", "Git", "Vite", "Framer Motion", "NPM"
             ].map((skill, i) => (
-            <span
+              <span
                 key={i}
                 className="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium"
-            >
+              >
                 {skill}
-            </span>
+              </span>
             ))}
         </div>
         </motion.div>
-
-
 
         {/* CV Button */}
         <motion.div

@@ -12,7 +12,7 @@ export default function Navbar({ toggleDarkMode, darkMode }) {
     { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
     { label: "Testimonials", href: "#testimonials" },
-    { label: "Blog", href: "#blog" }, 
+    { label: "Blog", href: "#blog" },
     { label: "Contact", href: "#contact" },
   ];
 

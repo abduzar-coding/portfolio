@@ -1,9 +1,9 @@
 import { useState } from "react";
 import blogPosts from "../data/blogPosts";
-import BlogCard from "./BlogCard";
-import BlogModal from "./BlogModal";
+import BlogCard from "../components/BlogCard";
+import BlogModal from "../components/BlogModal";
 
-export default function BlogSection() {
+export default function Blog() {
   const [activePost, setActivePost] = useState(null);
 
   return (
@@ -28,4 +28,3 @@ export default function BlogSection() {
     </section>
   );
 }
-
