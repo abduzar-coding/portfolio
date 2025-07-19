@@ -34,7 +34,7 @@ const projects = [
   {
     title: "Currency Converter",
     abbreviation: "CC",
-    description: "Currency rates updated via external API.",
+    description: "A simple and responsive currency converter using real-time exchange rates.",
     github: "https://github.com/abduzar-coding/currency-converter",
     live: "https://converter.abduzar.dev",
     techStack: ["React", "Tailwind", "ExchangeRate API"]

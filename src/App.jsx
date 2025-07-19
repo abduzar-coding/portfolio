@@ -34,6 +34,12 @@ function App() {
         <Contact />
         <Footer />
       </div>
+      <a
+        href="#contact"
+        className="fixed bottom-5 right-5 z-50 bg-primary text-white px-5 py-3 rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 animate-bounce"
+      >
+        Hire Me
+      </a>
     </div>
   );
 }
