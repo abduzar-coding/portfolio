@@ -1,3 +1,4 @@
+// ✅ Updated Navbar.jsx
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -5,6 +6,7 @@ export default function Navbar({ toggleDarkMode, darkMode }) {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuClosing, setMenuClosing] = useState(false);
   const mobileMenuRef = useRef(null);
 
   const navLinks = [
@@ -56,6 +58,17 @@ export default function Navbar({ toggleDarkMode, darkMode }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [mobileOpen]);
 
+  const toggleMobileMenu = () => {
+    if (menuClosing) return;
+    if (mobileOpen) {
+      setMenuClosing(true);
+      setMobileOpen(false);
+      setTimeout(() => setMenuClosing(false), 300);
+    } else {
+      setMobileOpen(true);
+    }
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -90,10 +103,10 @@ export default function Navbar({ toggleDarkMode, darkMode }) {
 
         <button
           className="md:hidden text-dark dark:text-light text-2xl"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={toggleMobileMenu}
           aria-label="Toggle Menu"
         >
-          ☰
+          {mobileOpen ? "✕" : "☰"}
         </button>
       </div>
 
