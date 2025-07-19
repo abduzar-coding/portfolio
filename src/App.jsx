@@ -12,6 +12,10 @@ import Contact from "./sections/Contact";
 
 import "./index.css";
 
+
+import ParticlesScene from "./components/ParticlesScene";
+
+
 function App() {
   const [darkMode, setDarkMode] = useState(true);
 
@@ -22,6 +26,7 @@ function App() {
 
   return (
     <div className="relative min-h-screen w-screen bg-light dark:bg-dark">
+     
       <div className="relative z-10 text-dark dark:text-light px-4">
         <Navbar toggleDarkMode={() => setDarkMode(!darkMode)} darkMode={darkMode} />
         <Hero />

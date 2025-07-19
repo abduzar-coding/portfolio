@@ -9,7 +9,7 @@ export default function Hero() {
       className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-transparent"
     >
       {/* 🔵 Fullscreen canvas behind */}
-      <div className="absolute inset-0 -z-10">
+      <div className="fixed inset-0 -z-10">
         <ParticlesScene />
       </div>
 
