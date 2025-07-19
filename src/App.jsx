@@ -13,9 +13,6 @@ import Contact from "./sections/Contact";
 import "./index.css";
 
 
-import ParticlesScene from "./components/ParticlesScene";
-
-
 function App() {
   const [darkMode, setDarkMode] = useState(true);
 

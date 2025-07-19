@@ -1,56 +1,67 @@
-// src/components/ProjectCard.jsx
-import { motion } from "framer-motion";
+// ✅ ProjectCard.jsx
+import Tilt from 'react-parallax-tilt';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
-export default function ProjectCard({ title, description, tags = [], liveLink, codeLink }) {
+export default function ProjectCard({ title, description, github, live, techStack = [], abbreviation }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.03 }}
-      transition={{ duration: 0.01, ease: "linear" }}
-      viewport={{ once: true, amount: 0.5 }}
-      className="bg-white dark:bg-secondary rounded-xl shadow-md p-6 flex flex-col gap-4 transition-all duration-300 cursor-pointer"
+    <Tilt
+      glareEnable={true}
+      glareMaxOpacity={0.15}
+      scale={1.03}
+      tiltMaxAngleX={10}
+      tiltMaxAngleY={10}
+      transitionSpeed={1000}
+      className="rounded-2xl bg-white/20 dark:bg-dark/30 backdrop-blur-md shadow-xl p-4 max-w-md mx-auto hover:shadow-2xl transition-all duration-300 border border-white/10"
+
     >
-      <div>
-        <h3 className="text-xl font-bold text-dark dark:text-white">{title}</h3>
-        <p className="text-muted dark:text-gray-300">{description}</p>
+      {/* Abbreviation-based placeholder */}
+      <div className="rounded-xl bg-gradient-to-br from-sky-500 to-blue-700 w-full h-48 flex items-center justify-center text-white text-3xl font-bold tracking-wide shadow-inner uppercase">
+        {abbreviation || "??"}
       </div>
 
-      <div className="flex flex-wrap gap-2">
-        {tags.map((tag, index) => (
-          <span
-            key={index}
-            className="px-3 py-1 bg-primary text-white text-sm rounded-full"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
+      {/* Text content */}
+      <div className="mt-4 space-y-2">
+        <h3 className="text-xl font-bold">{title}</h3>
+        <p className="text-muted dark:text-gray-400 text-sm">{description}</p>
 
-      {(liveLink || codeLink) && (
+        {/* Tech stack tags */}
+        {techStack.length > 0 && (
+          <div className="flex flex-wrap gap-2 mt-2">
+            {techStack.map((tech, idx) => (
+              <span
+                key={idx}
+                className="text-xs bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 px-2 py-1 rounded"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {/* Action buttons */}
         <div className="flex gap-4 mt-4">
-          {liveLink && (
+          {github && (
             <a
-              href={liveLink}
+              href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-blue-600 transition"
+              className="flex items-center gap-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition"
             >
-              Live Demo
+              <FaGithub /> GitHub
             </a>
           )}
-          {codeLink && (
+          {live && (
             <a
-              href={codeLink}
+              href={live}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gray-800 text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-gray-700 transition"
+              className="flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-400 transition"
             >
-              View Code
+              <FaExternalLinkAlt /> Live Demo
             </a>
           )}
         </div>
-      )}
-    </motion.div>
+      </div>
+    </Tilt>
   );
 }
