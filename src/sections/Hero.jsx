@@ -1,43 +1,66 @@
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import ParticlesScene from "../components/ParticlesScene";
 import Button from "../components/Button";
 
+const roles = [
+  "Front-end Developer",
+  "React.js Specialist",
+  "UI Animator & Designer",
+];
+
 export default function Hero() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % roles.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="home"
       className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-transparent"
     >
-      {/* 🔵 Fullscreen canvas behind */}
+      {/* 🔵 Fullscreen canvas background */}
       <div className="fixed inset-0 -z-10">
         <ParticlesScene />
       </div>
 
       {/* 🔵 Foreground content */}
       <div className="relative z-10 px-4 text-center space-y-6">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-5xl md:text-6xl font-bold"
-        >
+        {/* 🪄 Static Name */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white">
           Hey, I'm <span className="text-primary">Abduzar Khabib</span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="text-lg text-muted dark:text-gray-400 max-w-xl mx-auto"
-        >
-          I'm a front-end developer crafting sleek, responsive websites with React, Tailwind, and motion-driven design.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-        >
+        </h1>
+
+        {/* 💬 Rotating Role Title with Drop Animation */}
+        <div className="flex justify-center">
+          <div className="flex items-center gap-1 sm:gap-2 text-lg sm:text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300">
+            <span className="whitespace-nowrap">I’m a</span>
+            <div className="relative h-[1.6em] min-w-[220px] sm:min-w-[260px] overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={index}
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: 20, opacity: 0 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="absolute inset-0 flex items-center justify-start text-primary font-semibold whitespace-nowrap"
+                >
+                  {roles[index]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Button */}
+        <div className="mt-4">
           <Button href="#projects">View Projects</Button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
