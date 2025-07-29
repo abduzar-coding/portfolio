@@ -36,24 +36,21 @@ export default function Hero() {
           Hey, I'm <span className="text-primary">Abduzar Khabib</span>
         </h1>
 
-        {/* 💬 Rotating Role Title with Drop Animation */}
+        {/* 💬 Rotating Role Title (standalone) */}
         <div className="flex justify-center">
-          <div className="flex items-center gap-1 sm:gap-2 text-lg sm:text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300">
-            <span className="whitespace-nowrap">I’m a</span>
-            <div className="relative h-[1.6em] min-w-[220px] sm:min-w-[260px] overflow-hidden">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={index}
-                  initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: 20, opacity: 0 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="absolute inset-0 flex items-center justify-start text-primary font-semibold whitespace-nowrap"
-                >
-                  {roles[index]}
-                </motion.span>
-              </AnimatePresence>
-            </div>
+          <div className="relative h-[1.6em] min-w-[220px] sm:min-w-[260px] overflow-hidden text-lg sm:text-xl md:text-2xl font-semibold text-primary">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={index}
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: 20, opacity: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="absolute inset-0 flex items-center justify-center whitespace-nowrap"
+              >
+                {roles[index]}
+              </motion.span>
+            </AnimatePresence>
           </div>
         </div>
 
