@@ -81,7 +81,7 @@ export default function About() {
         >
           <div>
             <h4 className="text-xl font-bold text-dark dark:text-white">
-              🎓 <CountUp end={1} duration={2} /> Degree
+              🎓 UK Degree
             </h4>
             <p className="text-muted dark:text-gray-400">BSc in Computing</p>
           </div>
@@ -93,7 +93,7 @@ export default function About() {
           </div>
           <div>
             <h4 className="text-xl font-bold text-dark dark:text-white">
-              🌍 <CountUp end={3} duration={2} /> Languages
+              🌍  Multilingual
             </h4>
             <p className="text-muted dark:text-gray-400">English, Russian, Uzbek</p>
           </div>
