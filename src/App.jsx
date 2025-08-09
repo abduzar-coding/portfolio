@@ -12,7 +12,6 @@ import Contact from "./sections/Contact";
 
 import "./index.css";
 
-
 function App() {
   const [darkMode, setDarkMode] = useState(true);
 
@@ -23,7 +22,6 @@ function App() {
 
   return (
     <div className="relative min-h-screen w-screen bg-light dark:bg-dark">
-     
       <div className="relative z-10 text-dark dark:text-light px-4">
         <Navbar toggleDarkMode={() => setDarkMode(!darkMode)} darkMode={darkMode} />
         <Hero />
@@ -34,6 +32,8 @@ function App() {
         <Contact />
         <Footer />
       </div>
+
+      {/* Hire Me CTA */}
       <a
         href="#contact"
         className="fixed bottom-5 right-5 z-50 bg-primary text-white px-5 py-3 rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 animate-bounce"
