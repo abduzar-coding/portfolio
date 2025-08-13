@@ -73,7 +73,7 @@ export default function About() {
 
         {/* Quick Stats */}
         <motion.div
-          className="grid sm:grid-cols-3 gap-6 text-center justify-center mb-12"
+          className="grid sm:grid-cols-4 gap-6 text-center justify-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -84,6 +84,14 @@ export default function About() {
               🎓 UK Degree
             </h4>
             <p className="text-muted dark:text-gray-400">BSc in Computing</p>
+          </div>
+          <div>
+            <h4 className="text-xl font-bold text-dark dark:text-white">
+              📜 Meta Front-End
+            </h4>
+            <p className="text-muted dark:text-gray-400">
+              Completed all 9 courses        
+            </p>
           </div>
           <div>
             <h4 className="text-xl font-bold text-dark dark:text-white">
